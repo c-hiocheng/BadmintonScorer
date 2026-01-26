@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>羽毛球記分</title>
+    <link rel="stylesheet" href="../resources/styles/mainpage_styles.css">
+</head>
+</head>
+<body>
+    <div class="scoreboard">
+        <!-- 隊伍1 -->
+        <div class="team team1" id="team1" onclick="addPoint(1)">
+            <div class="team-name" id="teamName1" onclick="editTeamName(1, event)">隊伍 1</div>
+            <div class="score" id="score1">0</div>
+            <div class="minus-btn" onclick="minusPoint(1, event)">-</div>
+        </div>
+        
+        <!-- 隊伍2 -->
+        <div class="team team2" id="team2" onclick="addPoint(2)">
+            <div class="team-name" id="teamName2" onclick="editTeamName(2, event)">隊伍 2</div>
+            <div class="score" id="score2">0</div>
+            <div class="minus-btn" onclick="minusPoint(2, event)">-</div>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div class="controls">
+            <div class="ctrl-btn" onclick="resetScore()">重置</div>
+            <div class="ctrl-btn" onclick="swapTeams()">換邊</div>
+            <div class="ctrl-btn" onclick="endGame()">結束</div>
+        </div>
+        
+        <!-- 局數信息 -->
+        <div class="games-info">
+            <div class="games-display">
+                <div class="game-btn" onclick="changeGames(-1)">-</div>
+                <div>比賽局數: <span id="gamesCount">1</span> 局</div>
+                <div class="game-btn" onclick="changeGames(1)">+</div>
+            </div>
+            <div class="games-wins">
+                <div class="game-win" id="team1Wins">隊伍1: <span>0</span> 勝</div>
+                <div class="game-win" id="team2Wins">隊伍2: <span>0</span> 勝</div>
+            </div>
+        </div>
+        
+        <!-- 使用說明 -->
+        <div class="instructions">
+            點擊隊伍區域加分 | 點擊下方"-"按鈕減分 | 點擊隊名可修改
+        </div>
+        
+        <!-- 游戏状态 -->
+        <div class="game-status" id="gameStatus"></div>
+        
+        <!-- 规则说明 -->
+        <div class="rules" id="rulesPanel">
+            <h3>羽毛球計分規則</h3>
+            <ul>
+                <li>採用21分制，每球得分</li>
+                <li>先得21分且領先至少2分者勝出</li>
+                <li>20平後，需領先2分才能獲勝</li>
+                <li>29平後，先得30分者獲勝</li>
+                <li>一局獲勝方在下一局先發球</li>
+            </ul>
+            <button class="close-rules" onclick="toggleRules()">關閉</button>
+        </div>
+        
+        <!-- 规则按钮 -->
+        <div class="rules-toggle" onclick="toggleRules()">?</div>
+    </div>
+    
+    <!-- 修改隊名彈窗 -->
+    <div class="modal-overlay" id="teamNameModal">
+        <div class="modal">
+            <h3>修改隊伍名稱</h3>
+            <div class="input-group">
+                <label for="newTeamName">新隊伍名稱:</label>
+                <input type="text" id="newTeamName" placeholder="輸入隊伍名稱" maxlength="10">
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn confirm" onclick="confirmTeamName()">確認</button>
+                <button class="modal-btn cancel" onclick="cancelTeamName()">取消</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 横屏提示 -->
+    <div class="orientation-warning" id="orientationWarning">
+        <div class="orientation-icon">↻</div>
+        <h2>請橫向使用設備</h2>
+        <p>羽毛球記分系統最佳使用體驗為橫屏模式，請旋轉您的設備。</p>
+    </div>
+    <script src="../resources/javascript/badminton_activity.js"></script>
+</body>
+</html>
