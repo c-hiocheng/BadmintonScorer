@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-MO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入頁面</title>
+    <link rel="stylesheet" href="../resources/styles/login_styles.css">
+</head>
+<body>
+    <!-- 登入頁面左邊圖片 -->
+    <div id="login_picture">
+        <img src="../resources/images/img_login_logo.png" alt="登入圖片" style="width:50%; height:50%;">
+    </div>
+     <!-- 登入表單區域，用id標識 -->
+    <div id="login_form">
+        <h2>歡迎使用計分系統</h2>
+        <form action="/submit_login" method="post">
+            <!-- 用戶名輸入框 -->
+            <div class="form-group">
+                <label for="username">用戶名:</label>
+                <input type="text" id="username" name="username" required placeholder="請輸入用戶名">
+                <!-- <div class="helper-text">請輸入您的用戶名稱</div> -->
+            </div>
+            
+            <!-- 密碼輸入框 -->
+            <div class="form-group">
+                <label for="password">密碼:</label>
+                <input type="password" id="password" name="password" required placeholder="請輸入密碼">
+                <!-- <div class="helper-text">請輸入您的登入密碼</div> -->
+            </div>
+            
+            <!-- 額外選項容器 -->
+            <div class="form-options">
+                <!-- 記住我選項 -->
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me" name="remember_me">
+                    <label for="remember-me">記住我</label>
+                </div>
+                
+                <!-- 忘記密碼連結 -->
+                <div class="forgot-password">
+                    <a href="/forgot_password">忘記密碼？</a>
+                </div>
+            </div>
+            
+            <!-- 登入按鈕 -->
+            <button type="submit">登入</button>
+        </form>
+        
+        <!-- 注冊
+        <div class="register-link">
+            還沒有帳號？ <a href="/register">立即註冊</a>
+        </div> -->
+    </div>
+    <script src="../resources/javascript/login_activity.js"></script>
+</body>
+</html>
